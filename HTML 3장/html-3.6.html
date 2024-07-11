@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--<form> : 폼 양식을 의미하는 태그-->
+    <!--action 속성 : 사용자와 상호작용으로 입력받은 값들을 전송할 서버의 URL 주소를 적는다.-->
+    <!--method 속성 : 입력받은 값을 서버에 전송할 때 송신방식(Get, Post)를 적는다.-->
+    <form action="서버 url" method="get 또는 post">
+
+    <!--<input> : 아이디와 비밀번호처럼 입력받는 요소를 생성할 때 사용한다. type 속성은 필수! name과 value는 선택이다.-->
+    <!--type 속성 : 입력된 값에 따라 상호작용 요소의 종류를 결정한다. 84p. 표 참고.-->
+    <!--name 속성 : 입력 요소의 이름을 작성한다. form 태그에 의해 서버로 전송될때, name 속성에 적힌 값이 이름으로 지정된다.-->
+    <!--value 속성 : 입력 요소의 초깃값을 작성한다. 보통 사용자에게서 수동으로 값을 입력받지만, 상황에 따라 초깃값을 설정해야 하는 경우가 있다.-->
+    <input type="종류" name="이름" value="초깃값">
+    <input type="text">
+    <input type="password">
+    <input type="tel">
+    <input type="number">
+    <input type="url">
+    <input type="search">
+    <input type="email">
+    <input type="checkbox">
+    <input type="radio">
+    <input type="file">
+    <input type="button">
+    <input type="image" src="facebook.png">
+    <input type="hidden">
+    <input type="date">
+    <input type="datetime-local">
+    <input type="month">
+    <input type="week">
+    <input type="time">
+    <input type="range">
+    <input type="color">
+    <input type="submit">
+    <input type="reset">
+
+    <!--<label> : form태그 안에서 사용하는 상호작용 요소에 이름을 붙일 때 사용한다.
+        암묵적인 방법 : <label>태그에 상호작용 요소를 포함하는 방법
+        명시적인 방법 : <label>태그의 for 속성과 상호작용 요소의 id 속성을 같은 값으로 설정하는 방법-->
+    
+            <label>
+                아이디
+                <input type="text"> <!--text ==> 상호작용 요소-->
+            </label>
+
+            <label for="userpw">비밀번호</label> <!--for 속성값과 id 속성값이 같아야 함-->
+            <label type="password" id="userpw"></label>
+
+    </form>
+
+    
+</body>
+
+</html>
