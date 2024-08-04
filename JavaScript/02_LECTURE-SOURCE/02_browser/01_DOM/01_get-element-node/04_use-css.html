@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_use css</title>
+    <style>
+        .area {
+            width : 100px;
+            height: 100px;
+            border : 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>04. CSS 선택자를 이용한 요소 노드 취득</h1>
+    <pre>
+    <b>Document.prototype/Element.prototype.querySelector 메서드는 인수로 전달한 CSS 선택자를 만족시키는 하나의 요소 노드를 탐색하여 반환한다.</b>
+    </pre>
+    <div class="area">
+        <p>first</p>
+    </div>
+    <div class="area">
+        <p>second</p>
+    </div>
+    <script>
+        // Document.prototype.querySelector
+        // DOM 전체에서 class 어트리뷰트 값이 area인 첫 번째 요소 노드를 탐색하여 반환
+        const $area = document.querySelector(".area");
+        console.log($area);
+
+        // 취득한 요소 노드의 backgorundColor 프로퍼티 값 변경
+        $area.style.backgroundColor = 'gray';
+
+        // Element.prototype.querySelector
+        // $area의 자식 노드 중 p 태그인 첫 번째 요소 노드 탐색하여 반환
+        const $first = $area.querySelector('p');
+        console.log($first);
+
+        $first.style.color = 'white';
+
+        // CSS 선택자를 만족시키는 요소 노드가 존재하지 않는 경우 null 반환
+        const $noElem = document.querySelector(".noElem");
+        console.log($noElem);
+    </script>
+
+    <pre>
+    <b>Document.prototype/Element.prototype.querySelectorAll 메서드는 인수로 전달한 CSS 선택자를 만족시키는 모든 요소 노드를 탐색하여 반환한다.</b>
+    여러 개의 요소 노드 객체를 갖는 DOM 컬렉션 객체인 NodeList 객체를 반환한다.
+    </pre>
+
+    <ul id="list">
+        <li class="drink">커피</li>
+        <li class="drink">콜라</li>
+        <li class="food">김치찌개</li>
+        <li class="food">된장찌개</li>
+    </ul>
+
+    <script>
+        // Document.prototype.querySelectorAll
+        // DOM 전체에서 ul 태그의 자손 li 태그들을 모두 NodeList로 반환
+        const $lists = document.querySelectorAll('ul > li');
+        console.log($lists);    // NodeList - 유사 객체 배열, 이터러블
+
+        [...$lists].forEach(list => list.style.backgroundColor = 'gray');
+        // NodeList는 forEach 메소드 사용 가능하므로 스프레드 문법 모를 경우 사용
+        // $lists.forEach(list => list.style.backgroundColor = 'gray');
+        
+        // list 하위 요소 중 food 클래스를 가진 모든 요소를 NodeList로 반환 
+        const $foodLists = document.getElementById('list').querySelectorAll('.food');
+        console.log($foodLists);
+
+        [...$foodLists].forEach(food => food.style.color = 'white');
+
+        // CSS 선택자를 만족시키는 요소가 존재하지 않는 경우 빈 NodeList 객체 반환
+        const $noElemList = document.querySelectorAll('.noElemList');
+        console.log($noElemList);
+    </script>
+
+</body>
+</html>

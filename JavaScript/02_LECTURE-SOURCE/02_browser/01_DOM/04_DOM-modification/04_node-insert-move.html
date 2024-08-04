@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_node insert move</title>
+</head>
+<body>
+    <h1>04. 노드 삽입, 이동</h1>
+
+    <h3>노드 삽입</h3>
+    <pre>
+    Node.prototype.appendChild(childNode) : 인수로 전달받은 노드를 appendChild 메서드를 호출한 노드의 마지막 자식 노드로 추가
+    Node.prototype.insertBefore(newNode, childNode) : 첫 번째 인수로 전달받은 노드를 두 번째 인수로 전달 받은 노드 앞에 삽입
+    두 번째 인수로 전달 받은 노드는 반드시 insertBefore 메서드를 호출한 노드의 자식 노드여야 한다. 
+    </pre>
+
+    <ul id="drink">
+        <li>커피</li>
+    </ul>
+
+    <script>
+        const $drink = document.getElementById('drink');
+        const $li1 = document.createElement('li');
+        $li1.textContent = '콜라';
+
+        // $li1을 $drink의 마지막 자식 노드로 추가
+        $drink.appendChild($li1);
+
+        const $li2 = document.createElement('li');
+        $li2.textContent = '우유';
+
+        // $li2를 $drink.lastElementChild 앞에 삽입
+        $drink.insertBefore($li2, $drink.lastElementChild);
+
+        const $li3 = document.createElement('li');
+        $li3.textContent = '사이다';
+
+        // 두 번째 인수가 $drink의 자식 노드가 아니여서 DOMException 발생
+        // $drink.insertBefore($li3, document.querySelector('pre'));
+        
+        // 두 번째 인수가 null이면 appendChild처럼 마지막 자식 노드로 추가
+        $drink.insertBefore($li3, null);
+    </script>
+
+    <h3>노드 이동</h3>
+    
+    <pre>
+    DOM에 이미 존재하는 노드를 appendChild, insertBefore 메서드를 사용하여 DOM에 다시 추가하면
+    현재 위치에서 노드를 제거하고 새로운 위치에 노드를 추가하는 노드 이동이 발생한다.
+    </pre>
+
+    <ul id="food">
+        <li>파스타</li>
+        <li>피자</li>
+    </ul>
+
+    <script>
+        const $food = document.getElementById('food');
+
+        // food 하위의 파스타, 피자 노드 취득
+        const [$pasta, $pizza] = $food.children;
+        // const $pasta = $food.firstElementChild;
+        // const $pizza = $food.lastElementChild;
+
+        // 위의 ul인 $drink에 마지막 자식 노드로 파스타 추가
+        $drink.appendChild($pasta);
+
+        // 위의 ul인 $drink에 파스타 앞에 피자 추가
+        $drink.insertBefore($pizza, $pasta);
+    </script>
+    
+</body>
+</html>

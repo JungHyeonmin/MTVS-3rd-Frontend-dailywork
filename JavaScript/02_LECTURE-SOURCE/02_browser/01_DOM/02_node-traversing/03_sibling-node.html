@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_sibling node</title>
+</head>
+<body>
+    <h1>03. 형제 노드 탐색</h1>
+    <ol id="node">
+        <li>Node.prototype.previousSibling : 형제 노드 중 자신의 이전 형제 노드(요소 노드, 텍스트 노드)를 탐색하여 반환</li>
+        <li>Node.prototype.nextSibling : 형제 노드 중 자신의 다음 형제 노드(요소 노드, 텍스트 노드)를 탐생하여 반환</li>
+    </ol>
+    <script>
+        const $node = document.getElementById('node');
+        
+        // firstChild 프로퍼티는 요소 노드뿐만 아니라 텍스트 노드 반환 가능
+        const { firstChild } = $node;
+        // const firstChild = $node.firstChild; 와 동일
+        console.log(firstChild);
+
+        // firstChild의 다음 형제 노드를 탐색하여 반환
+        const { nextSibling } = firstChild;
+        // const nextSibling = firstChild.nextSibling; 와 동일
+        console.log(nextSibling);
+
+        // nextSibling의 이전 형제 노드를 탐색하여 반환
+        // firstChild -> nextSibling -> previousSibling(firstChild와 동일)
+        const { previousSibling } = nextSibling;
+        // const previousSibling = nextSibling.previousSibling; 와 동일
+        console.log(previousSibling);    
+    </script>
+
+    <ol id="element">
+        <li>Element.prototype.previousElementSibling : 형제 요소 노드 중 자신의 이전 형제 요소 노드를 탐색하여 반환</li>
+        <li>Element.prototype.nextElementSibling: 형제 요소 노드 중 자신의 다음 형제 요소 노드를 탐색하여 반환</li>
+    </ol>
+
+    <script>
+        const $element = document.getElementById('element');
+
+        // firstElementChild 프로퍼티는 요소 노드만 반환
+        const { firstElementChild } = $element;
+         // const firstElementChild = $element.firstElementChild;
+        console.log(firstElementChild);
+
+        // firstElementChild의 다음 형제 요소를 탐색하여 반환
+        const { nextElementSibling } = firstElementChild;
+        // const nextElementSibling = firstElementChild.nextElementSibling;
+        console.log(nextElementSibling);
+
+        // nextElementSibling의 이전 형제 요소를 탐색하여 반환
+        // firstElementChild -> nextElementSibling -> previousElementSibling(firstElementChild와 동일) 
+        const { previousElementSibling } = nextElementSibling;
+        // const previousElementSibling = nextElementSibling.previousElementSibling;
+        console.log(previousElementSibling);    
+
+    </script> 
+</body>
+</html>

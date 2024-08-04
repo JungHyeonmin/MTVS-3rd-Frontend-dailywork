@@ -1,7 +1,7 @@
 /* 02_convert-to-number (숫자 타입으로 변환) */
 console.log('===== 숫자 타입으로 변환 ======');
 
-// 산술 연산자의 피연산자는 모두 숫자여야하므로
+// 산술 연산자의 피연산자는 모두 숫자여야하므로 
 // 숫자가 아닌 피 연산자를 숫자 타입으로 암묵적 타입 변환한다.
 console.log(10 - '5');              // 5
 console.log(10 * '5');              // 50
@@ -23,8 +23,7 @@ console.log(+undefined);            // NaN
 // console.log(+Symbol());          // Cannot convert a Symbol value to a number
 console.log(+{});                   // NaN
 console.log(+[]);                   // 0
-console.log(+function () {
-});         // NaN
+console.log(+function(){});         // NaN
 
 // 빈 문자열, 빈 배열, null, false는 0으로 true는 1로 변환
 // 객체와 undefined는 변환되지 않아 NaN

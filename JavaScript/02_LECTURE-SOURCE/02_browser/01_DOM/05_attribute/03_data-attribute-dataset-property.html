@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_data attribute dataset property</title>
+</head>
+<body>
+    <h1>03. data 어트리뷰트와 dataset 프로퍼티</h1>
+
+    <pre>
+    data 어트리뷰트와 dataset 프로퍼티로 HTML 요소에 정의한 사용자 정의 어트리뷰트와 자바스크립트 간 데이터 교환이 가능하다. 
+    data 어트리뷰트는 data- 접두사 다음에 임의의 이름을 붙여 사용한다.
+    HTMLElement.dataset 프로퍼티로 DOMStringMap 객체 반환 받으면 임의의 이름을 카멜 케이스로 변환한 프로퍼티를 가지고 있다. 
+    </pre>
+
+    <ul class="boardlist">
+        <li data-board-id="13" data-category-id="1">망원 맛집 추천 부탁드려요!</li>
+        <li data-board-id="15" data-category-id="2">한강 러닝 크루 구해요!</li>
+        <li data-board-id="18" data-category-id="3">요즘 재태크 어떻게 하시나요?</li>
+    </ul>
+
+    <script>
+        const boardlist = [...document.querySelector('.boardlist').children];
+        // const boardlist = Array.from(document.querySelector('.boardlist').children);
+        
+        // DOMStringMap 객체 반환 출력
+        boardlist.forEach(board => console.log(board.dataset));
+
+        // categoryId가 '1'인 요소 노드를 취득한다.
+        const board = boardlist.find(board => board.dataset.categoryId === '1'); 
+        // categoryId를 '4'로 변경한다.
+        board.dataset.categoryId = '4';
+
+        // 새로운 data 어트리뷰트를 추가할 수도 있다.
+        // 카멜케이스(boardWriter) -> 케밥케이스(data-board-writer) 자동 변경 되어 추가
+        board.dataset.boardWriter = 'JS사랑해';
+    </script>
+</body>
+</html>
