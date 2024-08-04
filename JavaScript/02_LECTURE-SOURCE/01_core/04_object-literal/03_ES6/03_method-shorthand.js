@@ -1,4 +1,10 @@
-/* 03_method-shorthand(메서드 단축) */
+/**03_method-shorthand(메서드 단축)
+ *
+ * 4-3-3. method shorthand (메서드 단축)
+ *
+ * - ES5에서 메서드를 정의하려면 프로퍼티 값으로 함수를 할당한다.
+ * - ES6에서는 메서드를 정의할 때 function 키워드를 생략한 축약 표현을 사용할 수 있다.
+ */
 
 // ES5에서 메서드를 정의하려면 프로퍼티 값으로 함수를 할당한다.
 var dog = {
@@ -20,3 +26,25 @@ var dog2 = {
 }
 
 dog2.eat('고구마');
+
+
+console.log();
+
+var dog ={
+    name: '뽀삐',
+    eat: function (food) {
+        console.log(`${this.name}(은)는 ${food}를 맛있게 먹어요.`);
+    }
+};
+
+dog.eat('치킨');
+
+var dof2 ={
+    name: '호두과자',
+    eat(food) {
+        console.log(`${this.name}(은)는 ${food}를 맛있게 먹어요.`);
+    },
+};
+
+dog2.eat('김치');
+
