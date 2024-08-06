@@ -1,7 +1,12 @@
-/* 01_arrow-funciton-basic-syntax
-ES6에서 도입 된 화살표 함수는 function 키워드 대신 화살표를 사용해 좀 더 간략한 방법으로 함수를 선언할 수 있다. 
-화살표 함수는 항상 익명 함수로 정의한다. 본문이 한 줄인 함수를 작성할 때 유용하다.
-*/
+/** 01_arrow-funciton-basic-syntax
+ *
+ * 5-3-1. arrow function basic syntax(화살표 함수 기본 문법)
+ *
+ * ES6에서 도입 된 화살표 함수는 function 키워드 대신 화살표를 사용해 좀 더 간략한 방법으로 함수를 선언할 수 있다.
+ * 화살표 함수는 항상 익명 함수로 정의한다. 본문이 한 줄인 함수를 작성할 때 유용하다.
+ *
+ *
+ */
 var message;
 
 // 기존 function 정의
@@ -35,3 +40,28 @@ console.log(message('Function', '!'));
 message = val => "Arrow " + val;
 
 console.log(message('Functions are GOOD!!!'));
+
+
+console.log();
+
+var call;
+
+call = function () {
+    return "hello world";
+};
+console.log(call());
+
+call = () => {
+    return "화살 문법!";
+};
+console.log(call());
+
+call = () => "화살 문법은 쉽다!!";
+
+console.log(call());
+
+call = (val1, val2) => "화살 " + val1 + val2;
+console.log(call('문법', '!'));
+
+call = val =>"화살 " + val;
+console.log(call('문법들은 최고야!!'));
