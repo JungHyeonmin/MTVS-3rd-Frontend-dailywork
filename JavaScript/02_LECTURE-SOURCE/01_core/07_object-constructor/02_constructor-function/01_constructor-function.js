@@ -1,18 +1,27 @@
-/* 01_constructor-function(생성자 함수) */
+/**
+ *  01_constructor-function(생성자 함수)
+ *
+ *  7-2-1. constructor function
+ *
+ *  객체 리터럴을 이용한 객체 생성 방식은 직관적이고 간편하지만, 단 하나의 객체만 생성한다.
+ *  따라서, 동일 프로퍼티를 갖는 객체를 여러 개 생성해야 하는 경우 매번 같은 프로퍼티를 기술하기에 비효율적이다.
+ *
+ *  객체를 생성하기 위한 템플릿처럼 생성자 함수를 사용하여 프로퍼티 구조가 동일한 객체 여러 개를 간편하게 생성할 수 있다.
+ */
 
 // 객체 리터럴에 의한 객체 생성
 const student1 = {
-    name : '유관순',
-    age : 16,
-    getInfo : function(){
+    name: '유관순',
+    age: 16,
+    getInfo: function () {
         return `${this.name}(은)는 ${this.age}세입니다.`;
     }
 };
 
 const student2 = {
-    name : '홍길동',
-    age : 20,
-    getInfo : function(){
+    name: '홍길동',
+    age: 20,
+    getInfo: function () {
         return `${this.name}(은)는 ${this.age}세입니다.`;
     }
 };
@@ -29,7 +38,7 @@ function Student(name, age) {
     // 생성자 함수 내부의 this는 생성자 함수가 생성할 인스턴스를 가리킨다.
     this.name = name;
     this.age = age;
-    this.getInfo = function() {
+    this.getInfo = function () {
         return `${this.name}(은)는 ${this.age}세입니다.`;
     }
 }
@@ -43,4 +52,38 @@ console.log(student3.getInfo());
 console.log(student4.getInfo());
 
 
+console.log();
 
+
+const man = {
+    name: '김철수',
+    age : 16,
+    getInfo: function () {
+        return `${this.name}은(는) ${this.age}세 입니다.`;
+    },
+};
+console.log(man.getInfo());
+
+const man2 ={
+    name: '이영이',
+    age:20,
+    getInfo: function () {
+        return `${this.name}(은)는 ${this.age}세 입니다.`;
+    },
+}
+console.log(man2.getInfo());
+
+// this : 객체의 값(Student 의 name, age)
+function human(name, age) {
+    this.name = name;
+    this.age = age;
+    this.getInfo = function () {
+        return `${this.name}(은)는 ${this.age}세 입니다.`;
+    };
+}
+
+const man3 = new human('김철수', 29);
+const man4 = new human('커비', 1);
+
+console.log(man3.getInfo());
+console.log(man4.getInfo());
