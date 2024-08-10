@@ -1,19 +1,50 @@
-// 배열 메소드
+/**
+ * 9-2. 배열 메소드
+ *
+ * 9-2-1. 배열 메서드
+ * Array.prototype.indexOf, Array.prototype.lastIndexOf, Array.prototype.includes
+ * - index.Of : 배열에서 요소가 위치한 인덱스를 리턴
+ * - lastIndexOf : 배열의 요소가 위치한 마지막 인덱스를 리턴
+ * - includes : 배열에 해당 요소 포함 여부 리턴
+ * 
+ * Array.prototype.push, Array.prototype.pop
+ * - push : 배열의 맨 뒤에 요소 추가
+ * - pop : 배열의 맨 뒤에 요소 제거
+ * 
+ * Array.prototype.unshift, Array.prototype.shift
+ * - unshift: 배열의 맨 앞에 요소 추가
+ * - shift : 배열의 맨 앞 요소 제거 후 반환
+ * 
+ * Array.prototype.concat
+ * - concat : 두개 이상의 배열을  결합
+ *
+ * Array.prototype.slice, Array.prototype.splice
+ * - slice : 배열의 요소 선택 잘라내기
+ * - splice : 배열의 index 위치의 요소 제거 및 추가
+ * 
+ * Array.prototype.join
+ * - join : 배열을 구분자로 결합하여 문자열로 반환
+ * 
+ * Array.prototype.revers
+ * - reverse : 배열의 순서를 뒤집음
+ */
 const arr = [];
 // 배열의 생성자 함수는 Array
 console.log(arr.constructor === Array);                         // true
 // 배열의 프로토타입 객체는 Array.prototype
 console.log(Object.getPrototypeOf(arr) === Array.prototype);    // true
-// => Array.prototype은 배열을 위한 빌트인 메서드를 제공한다.
+// => Array.prototype 은 배열을 위한 빌트인 메서드를 제공한다.
 
 // Array.prototype.indexOf 
 // indexOf : 배열에서 요소가 위치한 인덱스를 리턴
-// lastIndexOf : 배열의 요소가 위치한 마지막 인덱스를 리턴
+// lastIndexOf : 배열의 요소를 마지막부터 탐색하여 인덱스를 리턴
 // includes : 배열에 해당 요소 포함 여부 리턴
 const foodList = ['물회', '삼계탕', '냉면', '수박', '물회'];
 
 console.log(`foodList.indexOf('물회') : ${foodList.indexOf('물회')}`);                  // 0
+// 1번 인덱스 부터 탐색해서 '물회'의 인덱스를 반환
 console.log(`foodList.indexOf('물회', 1) : ${foodList.indexOf('물회', 1)}`);            // 4
+// 없는 값은 '-1'을 반환한다.
 console.log(`foodList.indexOf('삼겹살') :  ${foodList.indexOf('삼겹살')}`);             // -1
 
 console.log(`foodList.lastIndexOf('물회') : ${foodList.lastIndexOf('물회')}`);          // 4
@@ -91,3 +122,8 @@ console.log(`snackList.join('/') : ${snackList.join('/')}`);    // 사탕/초콜
 
 // Array.prototype.reverse : : 배열의 순서를 뒤집음
 console.log(`[1, 2, 3, 4, 5].reverse() : ${[1, 2, 3, 4, 5].reverse()}`);    // 5,4,3,2,1
+
+
+console.log('==============');
+
+
