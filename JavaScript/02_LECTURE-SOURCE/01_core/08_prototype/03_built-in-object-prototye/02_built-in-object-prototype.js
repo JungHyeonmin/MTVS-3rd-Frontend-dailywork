@@ -1,5 +1,11 @@
-// Function, String, Number을 비롯한 내장 객체들 역시 프로토타입에 메서드를 저장한다.
-// 모든 내장 프로토타입의 상속 트리 꼭대기엔 Object.prototype이 있어야 한다고 규정한다. - 그림
+/**
+ * 8-3-2. built in object prototype
+ *
+ * - Function, String, Number 을 비롯한 내장 객체들 역시 프로토타입에 메서드를 저장한다.
+ * - 모든 내장 프로토타입의 상속 트리 꼭대기엔 Object.prototype 이 있어야 한다고 규정한다.
+ * - Object.prototype 에도 메서드 toString 이 있다.
+ *    - 중복 메서드가 있을 때는 체인 상에서 가까운 곳에 잇는 메서드가 사용된다.
+ */
 const num = new Number(100);
 
 // num은 Number.prototype을 상속받았는가?
@@ -42,3 +48,27 @@ String.prototype.hello = function() {
 
 // 그러나 내장 프로토타입 변경은 되도록 하지 않아야 한다.
 // 내장 프로토타입은 새로 명세서에 등록된 기능을 사용하고 싶은데 자바스크립트 엔진엔 이 기능이 구현되어있지 않을 때만 변경하는 게 좋다.
+
+
+console.log();
+
+const num1 = new Number(100);
+console.log(num1.__proto__ === Number.prototype);
+console.log(num1.__proto__.__proto__ === Object.prototype);
+console.log(num.__proto__.__proto__.__proto__);
+
+String.prototype.hello1 = function () {
+  console.log(`hello01, ${this}`);
+};
+
+"JavaScript".hello1();
+
+const obj1 = {
+  0: "hello",
+  1: "javascript",
+  length: 2,
+};
+
+obj1.join = Array.prototype.join;
+
+console.log(obj.join('/'));
