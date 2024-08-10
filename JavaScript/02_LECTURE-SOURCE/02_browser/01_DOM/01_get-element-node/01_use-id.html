@@ -7,13 +7,31 @@
     <title>01_use id</title>
     <style>
         .area {
-            width : 100px;
+            width: 100px;
             height: 100px;
-            border : 1px solid lightgray;
+            border: 1px solid lightgray;
+
         }
     </style>
 </head>
 <body>
+    <h1>
+        브라우저 랜더링(browser rendering)
+    </h1>
+    <h2>
+        브라우저는 HTML, CSS, JavaScript 로 작성 된 텍스트 문서를 파싱하여 브라우저 렌더링한다.
+    </h2>
+    <p>
+        - 파싱(parsing): 프로그래밍 언어의 문법에 맞게 작성 된 텍스트 문서를 읽어 들여 실행하기 위해<br>
+        텍스트 문서의 문자열을 토큰으로 분해하고, 토큰에 문법적 의미와 구조를 반영하여 트리구조의<br>
+        자료구저인 파스트리(parse tree)를 생성하는 일련의 과정이다. 일반적으로 파싱 이후<br>
+        라프 트리를 기반으로 중간 언어인 바이트 코드를 생성하고 실행한다.<br><br>
+
+        - 렌더링(rendering): HTML, CSS, JavaScript 로 작성된 문서를 파싱하여 브라우저에 시각적으로 출력하는 것이다.
+    </p>
+
+
+
     <h1>01. id를 이용한 요소 노드 취득</h1>
     <pre>
     <b>Document.prototype.getElementById 메서드는 인수로 전달한 id 어트리뷰트 값을 갖는 하나의 요소 노드를 탐색하여 반환한다.</b>
@@ -29,8 +47,12 @@
     </div> 
     <script>
         // 요소 노드 취득
+        // document : 내장 객체
+        // getElementById(): 전체 문서에서 ()안의 요소를 선택
+        // $변수명: html 요소를 담고있다는 것을 알 수 있다.
         const $elem = document.getElementById('area1');
         // 요소의 스타일 속성을 이용하여 배경색 변경
+        // style: CSS 의 속성을 변경한다. - backgroundColor: 배경색 을 skyblue 로 변경
         $elem.style.backgroundColor = 'skyblue';
         // => 해당 아이디를 가진 요소들 중 첫 번째 요소만 스타일 속성이 적용된다.
 
@@ -38,9 +60,10 @@
         // Uncaught TypeError: Cannot set properties of undefined (setting 'backgroundColor')
         // let area2 = 10; // 작성하여 위의 오류 확인 후 주석
         // 1) id 속성 값을 그대로 딴 전역 변수를 이용한 접근도 가능하다.
-        area2.style.backgroundColor = 'blue';
+        area2.style.backgroundColor = 'red';
 
         // id 값을 갖는 HTML 요소가 존재하지 않는 경우 null 반환
+        // $noElem 에 'area3'이라는 문자열 속성을 전달
         const $noElem = document.getElementById('area3');
         console.log($noElem);
     </script>

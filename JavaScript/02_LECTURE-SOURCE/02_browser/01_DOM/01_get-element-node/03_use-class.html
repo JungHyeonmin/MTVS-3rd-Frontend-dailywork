@@ -25,14 +25,16 @@
     </ul>
     <script>
         // Document.prototype.getElementsByClassName
-        // DOM 전체에서 class 값이 drink 인 요소 노드를 모두 탐색하여 반환 
+        // DOM 전체에서 class 값이 drink 인 요소 노드를 모두 탐색하여 반환
+        // $drinks 에 'drink' 라는 이름을 가진 요소들을 저장
         const $drinks = document.getElementsByClassName("drink");
         console.log($drinks); // HTMLColleciton - 유사 객체 배열, 이터러블
         console.log($drinks.length); // length를 가지고 있다.
 
-        [...$drinks].forEach(drink => drink.style.color = 'red');
+        // [...$drinks].forEach(drink => drink.style.color = 'red');
         // ** 스프레드 문법을 모를 경우 Array.from() 활용 가능
-        // Array.from($drinks).forEach(drink => drink.style.color = 'red');
+        // forEach 로 모든 drinks 에 저장된 요소의 색을 red 로 변경
+        Array.from($drinks).forEach(drink => drink.style.color = 'red');
 
         // DOM 전체에서 class 값이 drink coffee 인 요소 노드를 모두 탐색하여 반환 
         const $coffee = document.getElementsByClassName('drink coffee');
@@ -44,8 +46,8 @@
         const $availableDrinks = $available.getElementsByClassName('drink');
         console.log($availableDrinks);
 
-        [...$availableDrinks].forEach(drink => drink.style.color = 'blue');
-    
+        // [...$availableDrinks].forEach(drink => drink.style.color = 'blue');
+        Array.from($availableDrinks).forEach(drink => drink.style.color = 'blue');
         // 해당 class를 갖는 요소가 존재하지 않을 경우 빈 HTMLCollection 객체 반환
         const $noElem = $available.getElementsByClassName('soju');
         console.log($noElem);

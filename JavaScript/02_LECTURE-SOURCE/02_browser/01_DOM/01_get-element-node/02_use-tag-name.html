@@ -25,10 +25,12 @@
     </ul>
     <script>
         // Document.prototype.getElementsByTagName
-        // DOM 전체에서 li 태그를 모두 탐색하여 반환 
+        // DOM 전체에서 li 태그를 모두 탐색하여 반환
+        // $lists 에 'li' 라는 태그 이름을 가진 요소들을 전달
         const $lists = document.getElementsByTagName("li");
+        // html 콘솔에 출력(f12)
         console.log($lists); // HTMLColleciton - 유사 객체 배열, 이터러블
-        console.log($lists.length); // length를 가지고 있다.
+        console.log($lists.length); // length를 가지고 있다. - li 태그가 6개니까 length: 6!
 
         // 기본 반복문을 통한 배경색 변경 처리
         let changeColor = 0;
@@ -38,21 +40,27 @@
         }
         
         // HTMLCollection 객체를 배열로 변환하여 순회하며 color 프로퍼티 값을 변경한다.
-        [...$lists].forEach(list => list.style.color = 'blue');
+
+        // 배열이라서 forEach 사용 가능
+        // $lists 에 있는 요소를 하나씩 꺼내서 배열의 요소에 하나씩 추가하라는 '전개 연산(spread 연산)'
+        // [...$lists].forEach(list => list.style.color = 'blue');
+
         // ** 스프레드 문법을 모를 경우 Array.from() 활용 가능
-        // Array.from($lists).forEach(list => list.style.color = 'blue');
+        Array.from($lists).forEach(list => list.style.color = 'blue');
         
         // Element.prototype.getelementsByTagName
-        // $drink의 자손 노드 중에서 li 태그 탐색
+
+        // $drink의 자손 노드 중에서 li 태그 탐색 - drink 배열 안의 li 태그 선택
         const $drink = document.getElementById('drink');
         const $listsFromDrink = $drink.getElementsByTagName('li');
         console.log($listsFromDrink);
 
-        [...$listsFromDrink].forEach(list => list.style.color = 'red');
+        // [...$listsFromDrink].forEach(list => list.style.color = 'red');
+        Array.from($listsFromDrink).forEach(list => list.style.color = 'red');
 
         // 해당 태그 이름을 갖는 요소가 존재하지 않을 경우 빈 HTMLCollection 객체 반환
         const $noElem = $drink.getElementsByTagName('a');
-        console.log($noElem);
+        console.log($noElem); // HTMLCollection
     </script>
 
 </body>
