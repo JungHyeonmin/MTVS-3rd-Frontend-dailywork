@@ -7,10 +7,10 @@
     <title>02_text node content</title>
 </head>
 <body>
-    <h1>02. 요소 노드의 텍스트 조작</h1>
+<h1>02-3-2. text node content(요소 노드의 텍스트 조작)</h1>
 
-    <h3>nodeValue</h3>
-    <pre>
+<h3>nodeValue</h3>
+<pre>
     지금까지 살펴본 노드 탐색, 노드 정보 프로퍼티는 모두 읽기 전용 접근자 프로퍼티이다.
     Node.prototype.nodeValue 프로퍼티는 setter와 getter가 모두 존재하는 접근자 프로퍼티이다. 
     
@@ -20,21 +20,23 @@
     텍스트 노드의 nodeValue 프로퍼티에 값을 할당하면 텍스트 노드의 값을 변경할 수 있다.
     </pre>
 
-    <div id="area">nodeValue</div>
-    <script>
-        console.log(document.nodeValue);
+<div id="area">nodeValue</div>
+<script>
+    // nodeValue : setter 와 getter 가 모두 존재하는 접근자 프로퍼티
+    // -> 'area' 이라는 이름을 가진 프로퍼티의 텍스트를 변경해보자!
+    console.log(document.nodeValue);
 
-        const $area = document.getElementById('area');
-        console.log($area.nodeValue);
+    const $area = document.getElementById('area');
+    console.log($area.nodeValue);
 
-        const $textNode = $area.firstChild;
-        console.log($textNode.nodeValue);
+    const $textNode = $area.firstChild;
+    console.log($textNode.nodeValue);
 
-        $textNode.nodeValue = '텍스트 값 변경 완료!';
-    </script>
+    $textNode.nodeValue = '텍스트 값 변경 완료'
+</script>
 
-    <h3>textContent</h3>
-    <pre>
+<h3>1-3-2. textContent(요소 노드의 텍스트 조작)</h3>
+<pre>
     Node.prototype.textContent 프로퍼티는 setter와 getter 모두 존재하는 접근자 프로퍼티로서 요소 노드의 텍스트와 모든 자손 노드의 텍스트를 모두 취득하거나 변경한다. 
     
     요소 노드의 textContent 프로퍼티를 참조하면 요소 노드의 콘텐츠 영역 내의 텍스트롤 모두 반환하며 이 때 HTML 마크업은 무시된다.
@@ -45,23 +47,24 @@
     innerText 프로퍼티는 textContent 프로퍼티와 유사한 동작을 하지만 CSS에 순종적(예를 들어 visibility:hidden; 은 반환하지 않음)이고,
     CSS 고려로 인해 느리기 때문에 사용하지 않는 것이 좋다.
     </pre>
-    
-    <div id="area2">textContent<span>내부 span</span></div>
 
-    <script>
-        const $area2 = document.getElementById('area2');
+<div id="area2">textContent<span>내부 span</span></div>
 
-        // HTML의 마크업이 무시 된 div 내부의 컨텐츠를 텍스트로 취득
-        console.log($area2.textContent);
+<script>
+    const $area2 = document.getElementById('area2');
 
-        // nodeValue는 텍스트 노드의 값만 반환하므로 textContent보다 코드가 복잡해진다
-        console.log($area2.nodeValue);  // null
-        console.log($area2.firstChild.nodeValue);   // textContent
-        console.log($area2.lastChild.firstChild.nodeValue); // 내부 span
-        
-        // area2의 모든 자식 노드가 제거 되고 할당한 문자열이 텍스트로 추가 된다.
-        // HTML 마크업이 파싱되지 않는다.
-        $area2.textContent = '텍스트 값 변경 완료!<span>내부 span</span>';
-    </script>
+    // HTML의 마크업이 무시 된 div 내부의 컨텐츠를 텍스트로 취득
+    const log = ($area2.textContent);
+
+    // nodeValue는 텍스트 노드의 값만 반환하므로 textContent보다 코드가 복잡해진다
+    console.log($area2.textContent);// null
+    console.log($area2.nodeValue);// textContent
+    console.log($area2.firstChild.nodeValue);// 내부 span
+
+    console.log($area2.lastChild.firstChild.nodeValue);
+    // area2의 모든 자식 노드가 제거 되고 할당한 문자열이 텍스트로 추가 된다.
+    // HTML 마크업이 파싱되지 않는다.
+    $area2.textContent = '텍스트 값 변경 완료! <span>내부 span</span>';
+</script>
 </body>
 </html>

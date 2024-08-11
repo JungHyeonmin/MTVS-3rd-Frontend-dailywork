@@ -7,33 +7,34 @@
     <title>01_get node info</title>
 </head>
 <body>
-    <h1>01. 노드 정보 취득</h1>
-    <pre>
+<h1>01-3-1.get node info (노드 정보 취득)</h1>
+<pre>
     Node.prototype.nodeType : 노드 객체의 종류, 즉 노드 타입을 나타내는 상수 반환
         Node.ELEMENT_NODE : 요소 노드 타입을 나타내는 상수 1 반환
         Node.TEXT_NODE : 텍스트 노드 타입을 나타내는 상수 3 반환
         Node.DOCUMENT_NODE : 문서 노드 타입을 나타내는 상수 9를 반환
     Node.prototype.nodeName : 노드의 이름을 문자열로 반환한다. 
+        문서 노드 : 문자열 "#document"를 반환
         요소 노드 : 다문자 문자열로 태그 이름을 반환
         텍스트 노드 : 문자열 "#text"를 반환
-        문서 노드 : 문자열 "#document"를 반환
     </pre>
 
-    <div id="area">노드 정보 취득</div>
+<div id="area">노드 정보 취득</div>
 
-    <script>
+<script>
+    // nodeType : 노드 객체의 종류, 즉 노드 타입을 나타내는 상수 반환
+    console.log(document.nodeType); // DOCUMENT_NODE : 9
 
-        console.log(document.nodeType);
-        console.log(document.nodeName);
+    const $area = document.getElementById('area');
+    console.log($area.nodeType === Node.ELEMENT_NODE); // ELEMENT_NODE : 1
 
-        const $area = document.getElementById('area');
-        console.log($area.nodeType);
-        console.log($area.nodeName);
+    const $textNode = $area.firstChild;
+    console.log($textNode.nodeType === Node.TEXT_NODE);
 
-        const $textNode = $area.firstChild;
-        console.log($textNode.nodeType);
-        console.log($textNode.nodeName);
-
-    </script>
+    // nodeName : 노드의 이름을 문자열로 반환한다.
+    console.log(document.nodeName); // 문서 노드
+    console.log($area.nodeName);    // 요소 노드
+    console.log($textNode.nodeName);// 텍스트 노드
+</script>
 </body>
 </html>
