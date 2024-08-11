@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <title>02_event handler property</title>
 </head>
 <body>
-    <h1>02. 이벤트 핸들러 프로퍼티 방식</h1>
+    <h1>2-1-2. event handler property (이벤트 핸들러 프로퍼티 방식)</h1>
     <pre>
     window 객체와 Document, HTMLElement 타입의 DOM 노드 객체는 이벤트에 대응하는 이벤트 핸들러 프로퍼티를 가지고 있다. 
     이벤트 핸들러 프로퍼티의 키는 이벤트 핸들러 어트리뷰트와 동일하며 (on 접두사 + 이벤트 타입)
@@ -19,14 +19,15 @@
 
     <button id="btn">클릭해보세요</button>
     <script>
-        const $button = document.querySelector('#btn');
+        // querySelector : HTML 문서에서 첫 번째로 일치하는 요소르 찾아 반환한다.
+        const $button = document.querySelector('#btn'); // id 가 btn 이라는 css 선택자를 이용해서 요소를 선택하는 메서드
 
-        $button.onclick = function() {
-            alert('DOM 프로퍼티 방식으로 이벤트 핸들러 등록 완료!');
-        };
+        $button.onclick  = () => {
+            alert('DOM 프로퍼티 방식으로 이벤트 핸들러 등록 완료!')
+        }
 
-        // 이전 이벤트 핸들러는 무시되어 하나의 이벤트 밖에 연결 할 수 없다
-        $button.onclick = () => alert('이벤트 덮어쓰기!');
+        // 이전 이벤트를 무시하고 하나의 이벤트만 연결할 수 있다.
+        $button.onclick = () => alert('인벤트 덮어쓰기');
     </script>
     
 </body>
