@@ -7,8 +7,9 @@
     <title>02_insertAdjacentHTML</title>
 </head>
 <body>
-    <h1>02. insertAdjacentHTML</h1>
-    <pre>
+<h1>DOM(노드 수정)</h1>
+<h2>1-4-2. insertAdjacentHTML</h2>
+<pre>
     Element.prototype.insertAdjacentHTML(position, DOMString) 메서드는 기존 요소를 제거하지 않으면서 
     위치를 지정해 새로운 요소를 삽입한다. 첫번째 인수로 전달할 수 있는 문자열은 
     'beforebegin', 'afterbegin', 'beforeend', 'afterend'의 4가지이다.
@@ -19,17 +20,18 @@
     스크립팅 공격에 취약하다는 점은 동일하다. 
     </pre>
 
-    <div id="area">
-        insertAdjacentHTML 메소드 사용 테스트
-    </div>
+<div id="area">
+    insertAdjacentHTML 메소드 사용 테스트
+</div>
 
-    <script>
-        const $area = document.getElementById('area');
+<script>
+    const $area = document.getElementById('area')
 
-        $area.insertAdjacentHTML('beforebegin', '<h1>beforebegin 테스트</h1>');
-        $area.insertAdjacentHTML('afterbegin', '<h1>afterbegin 테스트</h1>');
-        $area.insertAdjacentHTML('beforeend', '<h1>beforeend 테스트</h1>');
-        $area.insertAdjacentHTML('afterend', '<h1>afterend 테스트</h1>');
-    </script>
+    // 많이 사용하지만 방향때문에 헷갈린다.
+    $area.insertAdjacentHTML('beforebegin', '<h1>beforeBegin 테스트</h1>');
+    $area.insertAdjacentHTML('afterbegin', '<h1>AfterBegin 테스트</h1>');
+    $area.insertAdjacentHTML('beforeend', '<h1>BeforeEnd 테스트</h1>');
+    $area.insertAdjacentHTML('afterend', '<h1>AfterEnd 테스트</h1>');
+</script>
 </body>
 </html>
