@@ -7,55 +7,67 @@
     <title>03_sibling node</title>
 </head>
 <body>
-    <h1>03. 형제 노드 탐색</h1>
-    <ol id="node">
-        <li>Node.prototype.previousSibling : 형제 노드 중 자신의 이전 형제 노드(요소 노드, 텍스트 노드)를 탐색하여 반환</li>
-        <li>Node.prototype.nextSibling : 형제 노드 중 자신의 다음 형제 노드(요소 노드, 텍스트 노드)를 탐생하여 반환</li>
-    </ol>
-    <script>
-        const $node = document.getElementById('node');
-        
-        // firstChild 프로퍼티는 요소 노드뿐만 아니라 텍스트 노드 반환 가능
-        const { firstChild } = $node;
-        // const firstChild = $node.firstChild; 와 동일
-        console.log(firstChild);
+<h1>03. 형제 노드 탐색</h1>
+<ol id="node">
+    <h3>1-2-3. sibling node(형제 노드)</h3>
+    <li>Node.prototype.previousSibling : 형제 노드 중 자신의 이전 형제 노드(요소 노드, 텍스트 노드)를 탐색하여 반환</li>
+    <li>Node.prototype.nextSibling : 형제 노드 중 자신의 다음 형제 노드(요소 노드, 텍스트 노드)를 탐생하여 반환</li>
+</ol>
 
-        // firstChild의 다음 형제 노드를 탐색하여 반환
-        const { nextSibling } = firstChild;
-        // const nextSibling = firstChild.nextSibling; 와 동일
-        console.log(nextSibling);
+<script>
+    const $node = document.getElementById('node');
 
-        // nextSibling의 이전 형제 노드를 탐색하여 반환
-        // firstChild -> nextSibling -> previousSibling(firstChild와 동일)
-        const { previousSibling } = nextSibling;
-        // const previousSibling = nextSibling.previousSibling; 와 동일
-        console.log(previousSibling);    
-    </script>
+    // firstChild 프로퍼티는 요소 노드뿐만 아니라 텍스트 노드 반환 가능
+    const $firstChild = $node.firstChild; // node 라는 이름의 노드 중에서 firstChild
+    // const firstChild = $node.firstChild; 와 동일
+    console.log($firstChild);
 
-    <ol id="element">
-        <li>Element.prototype.previousElementSibling : 형제 요소 노드 중 자신의 이전 형제 요소 노드를 탐색하여 반환</li>
-        <li>Element.prototype.nextElementSibling: 형제 요소 노드 중 자신의 다음 형제 요소 노드를 탐색하여 반환</li>
-    </ol>
+    // firstChild의 다음 형제 노드를 탐색하여 반환
+    const {firstChild} = $node;
+    console.log(firstChild);
+    // const nextSibling = firstChild.nextSibling; 와 동일
 
-    <script>
-        const $element = document.getElementById('element');
+    // nextSibling : 형제 노드 중 자신의 다음 형제 노드를 탐색
+    const {nextSibling} = firstChild;
+    console.log(nextSibling);
 
-        // firstElementChild 프로퍼티는 요소 노드만 반환
-        const { firstElementChild } = $element;
-         // const firstElementChild = $element.firstElementChild;
-        console.log(firstElementChild);
+    // nextSibling 의 이전 형제 노드를 탐색하여 반환
+    // firstChild -> nextSibling -> previousSibling(firstChild와 동일)
+    const {previousSibling} = nextSibling;
+    console.log(previousSibling);
+    // const previousSibling = nextSibling.previousSibling; 와 동일
 
-        // firstElementChild의 다음 형제 요소를 탐색하여 반환
-        const { nextElementSibling } = firstElementChild;
-        // const nextElementSibling = firstElementChild.nextElementSibling;
-        console.log(nextElementSibling);
+</script>
 
-        // nextElementSibling의 이전 형제 요소를 탐색하여 반환
-        // firstElementChild -> nextElementSibling -> previousElementSibling(firstElementChild와 동일) 
-        const { previousElementSibling } = nextElementSibling;
-        // const previousElementSibling = nextElementSibling.previousElementSibling;
-        console.log(previousElementSibling);    
+<ol id="element">
+    <li>Element.prototype.previousElementSibling : 형제 요소 노드 중 자신의 이전 형제 요소 노드를 탐색하여 반환</li>
+    <li>Element.prototype.nextElementSibling: 형제 요소 노드 중 자신의 다음 형제 요소 노드를 탐색하여 반환</li>
+</ol>
 
-    </script> 
+<script>
+
+    // element 라는 id 를 가진 요소를  선택해서 $element 에 저장
+    const $element = document.getElementById('element');
+    // firstElementChild 프로퍼티는 요소 노드만 반환
+    // firstElementChild : 가장 처음에 있는 자식 element 를 선택
+    const {firstElementChild} = $element;
+    console.log(firstElementChild);
+    // const firstElementChild = $element.firstElementChild;
+    const {nextElementSibling} = firstElementChild;
+    console.log(nextElementSibling);
+    // firstElementChild 의 다음 형제 요소를 탐색하여 반환
+    // previousElementSibling : 특정 요소의 바로 앞에 위치한 동일한 부모 노드 내의 형제 요소를 참조한다.
+    const {previousElementSibling} = nextElementSibling;
+    console.log(previousElementSibling);
+    // const nextElementSibling = firstElementChild.nextElementSibling;
+
+
+    // nextElementSibling의 이전 형제 요소를 탐색하여 반환
+    // firstElementChild -> nextElementSibling -> previousElementSibling(firstElementChild와 동일)
+
+    // const previousElementSibling = nextElementSibling.previousElementSibling;
+
+
+</script>
 </body>
 </html>

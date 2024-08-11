@@ -15,15 +15,15 @@
 
     <script>
         console.log("===== HTML =====");
-        console.log(document.documentElement);
+        console.log(document.documentElement); // document : 문서 전체
         console.log("===== HEAD =====");
         console.log(document.head);
         console.log("===== BODY =====");
         console.log(document.body);
         console.log("===== HEAD의 parentNode =====");
-        console.log(document.head.parentNode);
+        console.log(document.head.parentNode); // head 의 부모는 html 태그
         console.log("===== BODY의 parentNode =====");
-        console.log(document.body.parentNode);
+        console.log(document.body.parentNode); // body 의 부모는 html 태그
     </script>
 
     <ul id="lists">
@@ -33,8 +33,11 @@
     </ul>
 
     <script>
+        // 문서명이 coke 로 된 요소를 선택하고 그 요소를 $coke 에 저장
         const $coke = document.querySelector('.coke');
 
+        console.log($coke);
+        // $coke 의 부모 노드 출력 - ul 태그
         console.log($coke.parentNode);
     </script>
 </body>
